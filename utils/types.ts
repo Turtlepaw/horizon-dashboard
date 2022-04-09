@@ -1,5 +1,3 @@
-import { Collection, Permissions, PermissionString } from "discord.js";
-
 export interface DiscordUser {
   id: string;
   username: string;

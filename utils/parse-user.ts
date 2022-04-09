@@ -3,7 +3,6 @@ import { DiscordGuild, DiscordUser, RawDiscordGuild } from "./types";
 import { parse } from "cookie";
 import { verify } from "jsonwebtoken";
 import { config } from "./config";
-import { BitField, Client, Collection, Guild, GuildScheduledEvent, Permissions } from "discord.js";
 import fetch from "node-fetch";
 import { getUser } from "../db/db";
 
