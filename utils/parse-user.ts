@@ -16,7 +16,8 @@ export function parseUser(ctx: GetServerSidePropsContext): DiscordUser | null {
   }
 
   try {
-    const { iat, exp, ...user } = verify(token, config.jwtSecret) as DiscordUser & { iat: number; exp: number };
+    let { iat, exp, ...user } = verify(token, config.jwtSecret) as DiscordUser & { iat: number; exp: number };
+    user.avatarURL = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=4096`
     return user;
   } catch (e) {
     return null;

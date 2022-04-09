@@ -8,4 +8,5 @@ export interface DiscordUser {
   locale: string;
   mfa_enabled: boolean;
   premium_type: number;
+  avatarURL: string;
 }

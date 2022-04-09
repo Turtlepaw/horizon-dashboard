@@ -1,13 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
-    height: 100%;
+    background-color: #36393f;
+    color: white;
 }
 
-body {
-    height: 100%;
-    margin: 0;
-    font-family: -apple-system, sans-serif;
-    opacity: 0.8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.NavMenu {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.NavMenuAvatarImg {
+    border-radius: 50%;
+    width: 40%;
+}
+
+.NavMenuAvatarImg2 {
+    border-radius: 50%;
+    width: 5%;
+}
+
+.avatarMargin {
+    margin-left: 5%;
+}
+
+.NavMenuAvatar {
+    width: 25%;
+    margin-left: 75%;
+}
+
+.NavMenuIcon {
+    border-radius: 50px;
+    display: inline;
+    width: 5%;
+    margin-right: 5%;
+}
+
+.NavMenuInline {
+    display: inline;
+}
+
+.NavMenuButton {
+    background-color: #5865f2;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.LinkItem {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
