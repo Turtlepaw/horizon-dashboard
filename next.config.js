@@ -22,6 +22,11 @@ module.exports = {
           destination: addBot,
           permanent: true,
         },
+        {
+          source: '/privacy',
+          destination: '/legal/privacy',
+          permanent: true
+        }
       ]
     },
   }

@@ -11,7 +11,7 @@ interface Props {
 export default function Index(props: Props) {
   return (
     <>
-      <Head />
+      <Head pageTitle="Home"/>
       <NavMenu user={props.user} />
       <div className="text-center">
         <div>
@@ -25,7 +25,7 @@ export default function Index(props: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
-  const user = parseUser(ctx);
+  const user = await parseUser(ctx);
   const isDashboardPage = ["/guilds", "/dashboard"].includes(ctx.resolvedUrl);
 
   if (!user && isDashboardPage) {

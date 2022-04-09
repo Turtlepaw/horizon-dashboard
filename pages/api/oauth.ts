@@ -4,6 +4,7 @@ import { config } from "../../utils/config";
 import { sign } from "jsonwebtoken";
 import { DiscordUser } from "../../utils/types";
 import { NextApiRequest, NextApiResponse } from "next";
+import { createUser } from "../../db/db";
 
 const scope = ["identify", "guilds"].join(" ");
 const REDIRECT_URI = `${config.appUri}/api/oauth`;
@@ -56,6 +57,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const token = sign(me, config.jwtSecret, { expiresIn: "24h" });
+
+  await createUser({
+    access_token,
+    token_type,
+    jwt_token: token
+  });
 
   res.setHeader(
     "Set-Cookie",

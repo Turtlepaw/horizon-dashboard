@@ -29,7 +29,9 @@ export function NavMenuLinkItem(props: LinkItemProps) {
 
 export function NavMenuIcon() {
   return (
-    <img className="NavMenuIcon" src="/ico.png" />
+    <a href="/">
+      <img className="NavMenuIcon" src="/ico.png" />
+    </a>
   );
 }
 

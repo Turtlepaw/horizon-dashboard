@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { serialize } from "cookie";
+import { parse, serialize } from "cookie";
 import { config } from "../../utils/config";
+import { deleteUser } from "../../db/db";
 
 // Get our environment variables
 const { cookieName } = config;
@@ -13,6 +14,11 @@ export default async (_: NextApiRequest, res: NextApiResponse) => {
 			path: "/",
 		}),
 	]);
+
+	const token = parse(_.headers.cookie)[config.cookieName];
+	await deleteUser({
+		jwt_token: token
+	});
 
 	res.writeHead(302, { Location: "/" });
 	res.end();

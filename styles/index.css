@@ -7,6 +7,8 @@ html {
     color: white;
 }
 
+/* Nav Menu */
+
 .NavMenu {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -48,6 +50,8 @@ html {
     border-radius: 10px;
 }
 
+/* Utils */
+
 .LinkItem {
     margin-left: 10px;
     margin-right: 10px;
@@ -55,4 +59,46 @@ html {
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+.centerMargin {
+    margin-top: 20%;
+}
+
+/* Guild Display */
+
+.guildIcon {
+    border-radius: 50%;
+    width: 7% !important;
+    margin-left: 46.5%;
+    margin-bottom: 2%;
+}
+
+.GuildImgStuff {
+    text-align: center;
+    align-items: center;
+    padding-top: 5%;
+}
+
+.guildName {
+    display: inline;
+}
+
+.permissionText {
+    padding-top: 1%;
+}
+
+/* Guild Listing */
+
+.viewGuildButton {
+    background-color: #5865f2;
+    width: 150px;
+    border-radius: 10px;
+}
+
+/* Settings */
+
+.settingCategory {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
