@@ -1,3 +1,4 @@
+const addBot = "https://discord.com/oauth2/authorize?client_id=956747231615152188&permissions=1521157008391&scope=bot%20applications.commands";
 module.exports = {
     async redirects() {
       return [
@@ -7,8 +8,18 @@ module.exports = {
           permanent: true,
         },
         {
-          source: ['/add', '/bot', '/invite'],
-          destination: 'https://discord.com/oauth2/authorize?client_id=956747231615152188&permissions=1521157008391&scope=bot%20applications.commands',
+          source: '/bot',
+          destination: addBot,
+          permanent: true,
+        },
+        {
+          source: '/invite',
+          destination: addBot,
+          permanent: true,
+        },
+        {
+          source: '/add',
+          destination: addBot,
           permanent: true,
         },
       ]
