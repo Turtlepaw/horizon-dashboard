@@ -1,31 +1,20 @@
-import "reflect-metadata"
-import { DataSource, FindOptionsWhere } from "typeorm"
 import { User, UserOptions } from "./entities/user";
+import { connect } from "mongoose";
 
-export const AppDataSource = new DataSource({
-    type: "sqlite",
-    database: "db.sqlite",
-    synchronize: true,
-    logging: false,
-    entities: [User],
-    migrations: [],
-    subscribers: [],
-}).initialize();
+//@ts-expect-error
+connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 export async function createUser(options: UserOptions){
-    const repo = await (await AppDataSource).getRepository(User);
-
-    return await repo.save(options);
+    const res = await new User(options).save().catch(console.log);
+    return res;
 }
 
-export async function deleteUser(options: FindOptionsWhere<User>) {
-    const repo = await (await AppDataSource).getRepository(User);
-
-    return await repo.delete(options);
+export async function deleteUser(options: UserOptions) {
+    const res = await User.findOneAndDelete(options);
+    return res;
 }
 
-export async function getUser(options:FindOptionsWhere<User>) {
-    const repo = await (await AppDataSource).getRepository(User);
-
-    return await repo.findOneBy(options);
+export async function getUser(options: UserOptions) {
+    const res = await User.findOne(options);
+    return res;
 }

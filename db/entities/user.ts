@@ -1,19 +1,23 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn } from "typeorm"
+import mongoose, { model, Schema } from "mongoose";
 
-@Entity()
-export class User {
-    @PrimaryColumn()
-    access_token: string;
+const baseSchema = new Schema({
+    access_token: String,
+    token_type: String,
+    jwt_token: String
+});
 
-    @Column()
-    token_type: string;
+let modelThing;
 
-    @Column()
-    jwt_token: string;
+if(mongoose.models.cookies_){
+    modelThing = model(`cookies_`);
+} else {
+    modelThing = model(`cookies_`, baseSchema);
 }
 
+export const User = modelThing;
+
 export interface UserOptions {
-    access_token: string;
-    token_type: string;
-    jwt_token: string;
+    access_token?: string;
+    token_type?: string;
+    jwt_token?: string;
 }
