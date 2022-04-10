@@ -21,7 +21,7 @@ export default function Guild(props: Props){
         );
     }
 
-    if(props.guild.permissions && 0x0000000000000008 != 8){
+    if((props.guild.permissions & 0x0000000000000008) != 8){
         return (
             <div className="text-red-500 text-center centerMargin text-5xl font-bold">
                 Unauthorized access
@@ -41,7 +41,6 @@ export default function Guild(props: Props){
             </div>
             <a className="text-5xl font-bold guildName hover:underline cursor-pointer" id="name" href="#name">
                 <div className="text-center">
-                    {props.guild.name}
                 </div>
             </a>
             <p className="text-center permissionText">Administrator</p>
