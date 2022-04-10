@@ -3,6 +3,7 @@ import { parseUser } from "../../utils/parse-user";
 import { DiscordGuild, DiscordUser } from "../../utils/types";
 import NavMenu from "../../components/navBar";
 import HTMLHead from "../../components/head";
+import Footer from "../../components/footer";
 
 export interface Props {
     user: DiscordUser,
@@ -48,6 +49,7 @@ export default function Guild(props: Props){
             <div className="text-center font-bold text-6xl settingCategory bigSettingsCategory">
                 Settings
             </div>
+            <Footer />
         </>
     );
 }
@@ -66,6 +68,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async function (ctx
           permanent: false,
         },
       };
+    }
+
+    if(!guild.botIn){
+        return {
+            redirect: {
+                destination: process.env.ADD_BOT + `&guild_id=${ctx.query.id}`,
+                permanent: false
+            }
+        }
     }
   
     return { props: {

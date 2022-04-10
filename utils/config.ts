@@ -31,4 +31,9 @@ export const config = {
     "this is a development value that should be changed in production!!!!!",
     true
   ),
+  botToken: validateEnv(
+    "BOT_TOKEN",
+    "this is your bot's token",
+    true
+  )
 } as const;

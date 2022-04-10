@@ -1,32 +1,27 @@
-const addBot = "https://discord.com/oauth2/authorize?client_id=956747231615152188&permissions=1521157008391&scope=bot%20applications.commands";
+const addBot = process.env.ADD_BOT;
+
+function multipleLinks(destination, ...sources){
+  const results = [];
+  for(const source of sources){
+    results.push({
+      source,
+      destination,
+      permanent: true
+    });
+  }
+
+  return results;
+}
+
 module.exports = {
     async redirects() {
       return [
-        {
-          source: '/discord',
-          destination: 'https://discord.gg/CfVFe46cD4',
-          permanent: true,
-        },
-        {
-          source: '/bot',
-          destination: addBot,
-          permanent: true,
-        },
-        {
-          source: '/invite',
-          destination: addBot,
-          permanent: true,
-        },
-        {
-          source: '/add',
-          destination: addBot,
-          permanent: true,
-        },
-        {
-          source: '/privacy',
-          destination: '/legal/privacy',
-          permanent: true
-        }
+        ...multipleLinks(addBot, '/bot', '/add', '/invite'),
+        ...multipleLinks("/legal/privacy", '/tos', '/legal', '/privacy'),
+        ...multipleLinks("https://discord.gg/CfVFe46cD4", '/discord', '/support', '/server', '/join'),
+        ...multipleLinks("https://github.com/turtlepaws-workshop/horizon", '/github', '/sourcecode', '/source-code', '/open-source'),
+        ...multipleLinks("https://github.com/Turtlepaw/horizon-dashboard", '/dashboard-git', '/dashboard-gitub', '/dash-github', '/dash-git'),
+        ...multipleLinks("/guilds", '/dashboard', '/manage', '/bot', '/server')
       ]
     },
   }

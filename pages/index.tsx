@@ -3,6 +3,9 @@ import { DiscordUser } from "../utils/types";
 import { parseUser } from "../utils/parse-user";
 import NavMenu from "../components/navBar";
 import Head from "../components/head";
+import Feature from "../components/feature";
+import Footer from "../components/footer";
+import Emojipicker from "../components/emojipicker";
 
 interface Props {
   user: DiscordUser;
@@ -11,16 +14,20 @@ interface Props {
 export default function Index(props: Props) {
   return (
     <>
-      <Head pageTitle="Home"/>
+      <Head pageTitle="Home" />
       <NavMenu user={props.user} />
-      <div className="text-center">
-        <div>
-
-        </div>
-        <h1 className="text-3xl font-bold underline">
-          Hey, {props.user != null ? `${props.user.username}#${props.user.discriminator}` : "Not Logged In"}
+      <div className="text-center horizonText">
+        <h1 className="text-6xl font-bold">
+          Introducing, Horizon
         </h1>
-      </div></>
+      </div>
+      <div className="featureSep" />
+      <div>
+        <Feature name="Info on everything" description="Get info on the server or a user in a flash." num="left" numClass="featureGrey" image="/features/info.svg"/>
+        <Feature name="Info on everything" description="Get info on the server or a user in a flash." num="right" numClass="featureNone" image="/features/info.svg"/>
+      </div>
+      <Footer />
+    </>
   );
 }
 

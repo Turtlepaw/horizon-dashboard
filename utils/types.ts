@@ -29,6 +29,7 @@ export interface DiscordGuild {
   owner: boolean; //if they are the owner
   permissions: number;
   features: DiscordGuildFeatures[];
+  botIn: boolean;
 }
 
 export type DiscordGuildFeatures = "ANIMATED_BANNER"

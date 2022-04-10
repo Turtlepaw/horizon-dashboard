@@ -7,6 +7,17 @@ html {
     color: white;
 }
 
+/* Main page & Other */
+
+.horizonText {
+
+}
+
+.featureSep {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 /* Nav Menu */
 
 .NavMenu {
@@ -108,4 +119,77 @@ html {
 .settingCategory {
     margin-top: 5%;
     margin-bottom: 5%;
+}
+
+/* Features */
+
+.IconImage {
+    width: 50px;
+}
+
+.IconTitle {
+    font-weight: 900;
+    color: #5865f2;
+    font-size: 50px;
+}
+
+.text-left-stuff {
+    margin-left: 5%;
+}
+
+.text-right-stuff {
+    margin-left: 5%;
+}
+
+.IconDescription {
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+}
+
+.IconList {
+    padding-left: 50px; 
+    padding-right: 50px;
+    flex: auto;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.featureGrey {
+    background-color: #41454c;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.featureNone {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.feature, .ofeature {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    padding: 3rem 2rem;
+}
+
+.img-size {
+    width: 50%;
+}
+
+/* Footer */
+
+.footer {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.footerCategory {
+    margin-top: 1.5%;
+}
+
+.footerLink {
+    display: block;
+    font-weight: 450;
 }

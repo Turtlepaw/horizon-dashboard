@@ -11,7 +11,13 @@ export interface ParseError {
   message: string;
 }
 
-export function parseGuild(guild: RawDiscordGuild): DiscordGuild {
+export function parseGuild(guild: RawDiscordGuild, fetchedGuild: RawDiscordGuild): DiscordGuild {
+  //If you have the API running change this from:
+  //const botIn = fetchedGuild == null;
+  //to this:
+  //const botIn = fetchedGuild != null;
+  const botIn = fetchedGuild == null;
+
   return {
     features: guild.features,
     icon: guild.icon,
@@ -19,7 +25,8 @@ export function parseGuild(guild: RawDiscordGuild): DiscordGuild {
     id: guild.id,
     name: guild.name,
     owner: guild.owner,
-    permissions: guild.permissions
+    permissions: guild.permissions,
+    botIn: botIn
   }
 }
 
@@ -44,14 +51,25 @@ export async function parseUser(ctx: GetServerSidePropsContext, getGuilds: boole
     const guilds: RawDiscordGuild[] = await fetch("http://discord.com/api/users/@me/guilds", {
       headers: { Authorization: `${raw.token_type} ${raw.access_token}` },
     }).then((res) => res.json());
-  
+
+    const allGuilds: RawDiscordGuild[] = [];
+    // const allGuilds: RawDiscordGuild[] = await fetch(`http://discord.com/api/guilds`, {
+    //   headers: {
+    //     Authorization: `Bot ${config.botToken}`
+    //   }
+    // }).then((res) => res.json());
+
     if(!guilds || !Array.isArray(guilds)) return null;
 
-    parsedGuilds = guilds.map(e => {
-      const base = parseGuild(e);
+    console.log(allGuilds)
+    const rawGuilds = guilds.map(e => {
+      const guildFromAll = allGuilds.find(e => e.id == e.id);
+      const base = parseGuild(e, guildFromAll);
       if(base.permissions && 0x0000000000000008 != 8) return;
       return base;
-    }).filter(e => e != undefined);
+    });
+
+    parsedGuilds = rawGuilds.filter(e => e != undefined);
   }
 
   try {
