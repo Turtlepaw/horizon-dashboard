@@ -90,10 +90,17 @@ html {
 
 /* Guild Listing */
 
-.viewGuildButton {
-    background-color: #5865f2;
-    width: 150px;
-    border-radius: 10px;
+.viewGuildBtn {
+    display: inline;
+    margin-left: 5%;
+}
+
+.viewGuildSep {
+    padding-bottom: 5%;
+}
+
+.viewGuildText {
+    display: inline;
 }
 
 /* Settings */

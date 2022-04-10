@@ -39,11 +39,12 @@ export default function Guild(props: Props){
             <div className="GuildImgStuff">
                 <img src={props.guild.iconURL} className="guildIcon" alt={`${props.guild.name}'s Icon`} />
             </div>
-            <a className="text-5xl font-bold guildName hover:underline cursor-pointer" id="name" href="#name">
+            <a className="text-center text-5xl font-bold hover:underline cursor-pointer" id="name" href="#name">
                 <div className="text-center">
+                    {props.guild.name}
                 </div>
             </a>
-            <p className="text-center permissionText">Administrator</p>
+            <p className="text-center permissionText">{props.guild.owner ? "Owner" : "Administrator"}</p>
             <div className="text-center font-bold text-6xl settingCategory bigSettingsCategory">
                 Settings
             </div>
