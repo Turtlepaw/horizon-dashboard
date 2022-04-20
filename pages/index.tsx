@@ -23,8 +23,20 @@ export default function Index(props: Props) {
       </div>
       <div className="featureSep" />
       <div>
-        <Feature name="Info on everything" description="Get info on the server or a user in a flash." num="left" numClass="featureGrey" image="/features/info.svg"/>
-        <Feature name="Info on everything" description="Get info on the server or a user in a flash." num="right" numClass="featureNone" image="/features/info.svg"/>
+        <Feature
+          name="Info on everything"
+          description="Get info on the server or a user in a flash."
+          num="left"
+          numClass="featureGrey"
+          image="/features/info.svg"
+        />
+        <Feature
+          name="Info on everything"
+          description="Get info on the server or a user in a flash."
+          num="right"
+          numClass="featureNone"
+          image="/features/info.svg"
+        />
       </div>
       <Footer />
     </>

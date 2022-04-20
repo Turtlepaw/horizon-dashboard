@@ -3,6 +3,6 @@ import { Picker } from 'emoji-mart'
 
 export default function Emojipicker(){
     return (
-        <Picker set="twitter"/>
+        <Picker set="twitter" theme='dark'/>
     );
 }

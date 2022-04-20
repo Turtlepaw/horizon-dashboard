@@ -32,6 +32,36 @@ export interface DiscordGuild {
   botIn: boolean;
 }
 
+export type HexColor = `#${string}`;
+export type AvatarDecoration = string;
+
+export interface rawDiscordUser {
+  id: string;
+  username: string;
+  avatar: string; //avatar hash
+  avatar_decoration: AvatarDecoration; //coming soon
+  discriminator: string;
+  public_flags: number;
+  banner: string; //hash
+  banner_color: HexColor;
+  accent_color: HexColor;
+};
+
+export interface DiscordUserPartial {
+  id: string;
+  username: string;
+  tag: `${string}#${string}`;
+  avatar: string;
+  avatarURL: string;
+  avatar_decoration: AvatarDecoration;
+  discriminator: string;
+  public_flags: number;
+  banner: string;
+  banner_color: HexColor;
+  accent_color: HexColor;
+  bannerURL: string;
+}
+
 export type DiscordGuildFeatures = "ANIMATED_BANNER"
 | "ANIMATED_ICON"
 | "BANNER"

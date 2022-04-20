@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html, .background {
     background-color: #36393f;
     color: white;
 }
@@ -192,4 +192,21 @@ html {
 .footerLink {
     display: block;
     font-weight: 450;
+}
+
+.bg-blurple {
+    background-color: #5865f2;
+}
+
+.LoginProvider {
+    padding-top: 5%;
+}
+
+.LoginProviderBox {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.LoginProviderImage {
+    padding-bottom: 2%;
 }

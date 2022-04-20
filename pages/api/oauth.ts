@@ -56,7 +56,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.redirect(OAUTH_URI);
   }
 
-  const token = sign(me, config.jwtSecret, { expiresIn: "24h" });
+  const token = sign(me, config.jwtSecret, { expiresIn: "1y" });
 
   await createUser({
     access_token,

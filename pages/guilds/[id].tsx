@@ -4,14 +4,42 @@ import { DiscordGuild, DiscordUser } from "../../utils/types";
 import NavMenu from "../../components/navBar";
 import HTMLHead from "../../components/head";
 import Footer from "../../components/footer";
+import { useState } from 'react'
+import { Tab } from '@headlessui/react'
 
 export interface Props {
     user: DiscordUser,
     guild: DiscordGuild
 }
 
-export default function Guild(props: Props){
-    if(!props.guild){
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
+export default function Guild(props: Props) {
+    let [categories] = useState([
+        {
+            id: 1,
+            title: "Server",
+            description: "Time settings, commands, and other server related settings."
+        },
+        {
+            id: 2,
+            title: "Slash Commands (soon)",
+            description: "Create custom server slash commands with multiple actions linked. (Coming soon)"
+        },
+        {
+            id: 3,
+            title: "Button Roles",
+            description: "Assign custom roles to your users."
+        },
+        {
+            id: 4,
+            title: "Levels",
+            description: "Allow users to get rewards for chatting!"
+        }
+    ])
+
+    if (!props.guild) {
         return (
             <div className="text-red-500 text-center centerMargin text-5xl font-bold">
                 Unknown guild
@@ -22,7 +50,7 @@ export default function Guild(props: Props){
         );
     }
 
-    if((props.guild.permissions & 0x0000000000000008) != 8){
+    if ((props.guild.permissions & 0x0000000000000008) != 8) {
         return (
             <div className="text-red-500 text-center centerMargin text-5xl font-bold">
                 Unauthorized access
@@ -35,8 +63,8 @@ export default function Guild(props: Props){
 
     return (
         <>
-            <HTMLHead pageTitle="Dashboard"/>
-            <NavMenu user={props.user}/>
+            <HTMLHead pageTitle="Dashboard" />
+            <NavMenu user={props.user} />
             <div className="GuildImgStuff">
                 <img src={props.guild.iconURL} className="guildIcon" alt={`${props.guild.name}'s Icon`} />
             </div>
@@ -56,21 +84,21 @@ export default function Guild(props: Props){
 
 export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
     const user = await parseUser(ctx, true);
-    if(user?.guilds == null || user == null) return {
+    if (user?.guilds == null || user == null) return {
         notFound: true
     };
     const guild = user.guilds.find(e => e.id == ctx.query.id);
-  
+
     if (!user) {
-      return {
-        redirect: {
-          destination: '/api/oauth',
-          permanent: false,
-        },
-      };
+        return {
+            redirect: {
+                destination: '/api/oauth',
+                permanent: false,
+            },
+        };
     }
 
-    if(!guild.botIn){
+    if (!guild.botIn) {
         return {
             redirect: {
                 destination: process.env.ADD_BOT + `&guild_id=${ctx.query.id}`,
@@ -78,8 +106,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async function (ctx
             }
         }
     }
-  
-    return { props: {
-        user, guild
-    } };
-  };
+
+    return {
+        props: {
+            user, guild
+        }
+    };
+};

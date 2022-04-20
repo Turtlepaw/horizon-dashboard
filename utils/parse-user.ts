@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext } from "next";
-import { DiscordGuild, DiscordUser, RawDiscordGuild } from "./types";
+import { DiscordGuild, DiscordUser, DiscordUserPartial, RawDiscordGuild, rawDiscordUser } from "./types";
 import { parse } from "cookie";
 import { verify } from "jsonwebtoken";
 import { config } from "./config";
@@ -28,6 +28,15 @@ export function parseGuild(guild: RawDiscordGuild, fetchedGuild: RawDiscordGuild
     permissions: guild.permissions,
     botIn: botIn
   }
+}
+
+export async function parseUserFromAPI(ctx: GetServerSidePropsContext, fetched: rawDiscordUser): Promise<DiscordUserPartial> {
+  return {
+    ...fetched,
+    tag: `${fetched.username}#${fetched.discriminator}`,
+    avatarURL: `https://cdn.discordapp.com/avatars/${fetched.id}/${fetched.avatar}.png?size=4096`,
+    bannerURL: `https://cdn.discordapp.com/banners/${fetched.id}/${fetched.banner}.png?size=4096`
+  };  
 }
 
 export async function parseUser(ctx: GetServerSidePropsContext, getGuilds: boolean = false): Promise<DiscordUser | null> {

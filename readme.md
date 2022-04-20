@@ -1,18 +1,21 @@
 # Horizon dashboard
 
-This is [Horizon's](https://github.com/turtlepaws-workshop/horizon) dashboard.
+[Horizon's](https://github.com/turtlepaws-workshop/horizon) dashboard. With Discord auth, many pages, and a beautiful design using [Headless UI](https://headlessui.dev/), [Chakra UI](https://chakra-ui.com), and [Fluent Icons](https://www.npmjs.com/package/@fluentui/react-icons).
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Turtlepaw%2Fhorizon-dashboard)
 
-## Features
+## 📃 Features
 
 - 🧾 MIT License
 - 🗝️ Integrable with any bot
 - 📝 Built with TS & Next.js
 - 📤 Deploy with [Vercel](https://vercel.com/)
+- 🫶 100% open-source
+- 🏗️ Built in Discord Auth
 
+## 📦 Installation
 <details>
-  <summary>Installation</summary>
+  <summary>Expand</summary>
   
    ## Setting up
 
@@ -50,9 +53,16 @@ This is [Horizon's](https://github.com/turtlepaws-workshop/horizon) dashboard.
    7. Finally, open discord developer dashboard and add another redirect URI which is your `APP_URI` with `/api/oauth` added to the end.
 </details>
 
-## Credits
+## ❤️ Credits
 
 - [Alii](https://github.com/alii/) created [the Next.js Discord OAuth repository](https://github.com/alii/nextjs-discord-oauth/) which is used here.
 - [Turtlepaw (ofc)](https://github.com/turtlepaw) I built most of the dashboard (like 95% of it.)
 - [Vercel](https://vercel.com/) for providing **✨ outstanding ✨** hosting.
 - [Github](https://github.com) for hosting the source code.
+
+## ✅ ToDo
+- [ ] Create a custom component to select a guild setting category
+- [ ] Render guilds with icons and more to the right in a container
+- [ ] Get API running & intergrate API with the dashboard
+- [ ] Create an embed page `/embed/create` and `/embeds`
+- [ ] Create a changelog on the site & in an markdown file
