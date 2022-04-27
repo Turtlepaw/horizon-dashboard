@@ -7,7 +7,42 @@ html, .background {
     color: white;
 }
 
+/* Utils */
+
+.centerImage {
+    padding-top: 5%;
+}
+
 /* Main page & Other */
+
+.faq {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+}
+
+.faqItem {
+    border-top-width: 0px !important;
+    padding-top: 2%;
+    border-bottom-width: 0px !important;
+}
+
+.faqText:hover {
+    background-color: #5865f2 !important;
+}
+
+.faqText {
+    background-color: #5865f2;
+    border-radius: 10px;
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+    padding-bottom: 2% !important;
+    padding-top: 2% !important;
+}
+
+.faqSmallText {
+    padding-top: 2% !important;
+}
 
 .horizonText {
 

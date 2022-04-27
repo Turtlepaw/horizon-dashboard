@@ -6,6 +6,14 @@ import Head from "../components/head";
 import Feature from "../components/feature";
 import Footer from "../components/footer";
 import Emojipicker from "../components/emojipicker";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Box,
+} from '@chakra-ui/react'
 
 interface Props {
   user: DiscordUser;
@@ -37,6 +45,38 @@ export default function Index(props: Props) {
           numClass="featureNone"
           image="/features/info.svg"
         />
+      </div>
+      <div className="text-center">
+        <h2 className="text-5xl font-bold">FAQ</h2>
+        <Accordion className="faq">
+          <AccordionItem className="faqItem">
+            <h2>
+              <AccordionButton className="faqText">
+                <Box flex='1' textAlign='left'>
+                  Why is my server not showing up?
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4} className="faqSmallText">
+              This may be because you do not have the admin permissions in the guild! If you do please <a href="/support">contact us</a> with your user ID.
+            </AccordionPanel>
+          </AccordionItem>
+
+          <AccordionItem className="faqItem">
+            <h2>
+              <AccordionButton className="faqText">
+                <Box flex='1' textAlign='left'>
+                  How do I add the bot?
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4} className="faqSmallText">
+              You can invite by clicking <a href="/invite">here</a>.
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </div>
       <Footer />
     </>

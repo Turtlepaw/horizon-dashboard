@@ -9,6 +9,7 @@ import { ChevronDown24Filled as ChevronDownFilled } from "@fluentui/react-icons"
 import { CSSProperties } from "react"
 import { useToast } from '@chakra-ui/react';
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { AppProps } from "next/app";
 
 export interface Props {
   user: DiscordUser | DiscordUserPartial;
@@ -30,6 +31,14 @@ export function NavMenuLinkItem(props: LinkItemProps) {
     </a>
   );
 }
+
+export function Link({ Component, pageProps }: AppProps) {
+  return (
+    <a className="hover:underline LinkItem" href={pageProps.link}>
+      {pageProps.text}
+    </a>
+  );
+};
 
 export function NavMenuIcon() {
   return (
