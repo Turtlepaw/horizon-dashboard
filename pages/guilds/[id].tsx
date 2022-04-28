@@ -6,6 +6,7 @@ import HTMLHead from "../../components/head";
 import Footer from "../../components/footer";
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
+import { Error, NotLoggedIn } from "../../components/utils";
 
 export interface Props {
     user: DiscordUser,
@@ -38,6 +39,12 @@ export default function Guild(props: Props) {
             description: "Allow users to get rewards for chatting!"
         }
     ])
+
+    if(!props.user){
+        return (
+            <NotLoggedIn />
+        );
+    }
 
     if (!props.guild) {
         return (
@@ -84,19 +91,15 @@ export default function Guild(props: Props) {
 
 export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
     const user = await parseUser(ctx, true);
-    if (user?.guilds == null || user == null) return {
-        notFound: true
-    };
-    const guild = user.guilds.find(e => e.id == ctx.query.id);
-
-    if (!user) {
+    if(!user){
         return {
-            redirect: {
-                destination: '/api/oauth',
-                permanent: false,
-            },
-        };
+            props: {
+                user: null,
+                guild: null
+            }
+        }
     }
+    const guild = user.guilds.find(e => e.id == ctx.query.id);
 
     if (!guild.botIn) {
         return {

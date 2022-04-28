@@ -32,10 +32,15 @@ export function NavMenuLinkItem(props: LinkItemProps) {
   );
 }
 
-export function Link({ Component, pageProps }: AppProps) {
+export interface LinkProps {
+  children: string;
+  href: string;
+}
+
+export function Link({ children, href }: LinkProps) {
   return (
-    <a className="hover:underline LinkItem" href={pageProps.link}>
-      {pageProps.text}
+    <a className="hover:underline text-blurple" href={href}>
+      {children}
     </a>
   );
 };

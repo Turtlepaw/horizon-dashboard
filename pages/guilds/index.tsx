@@ -4,6 +4,7 @@ import { DiscordGuild, DiscordUser } from "../../utils/types";
 import NavMenu from "../../components/navBar";
 import HTMLHead from "../../components/head";
 import Footer from "../../components/footer";
+import { NotLoggedIn } from "../../components/utils";
 
 export interface Props {
     user: DiscordUser,
@@ -11,6 +12,12 @@ export interface Props {
 }
 
 export default function Guild(props: Props) {
+    if(!props.user){
+        return (
+            <NotLoggedIn />
+        );
+    }
+
     return (
         <>
             <HTMLHead pageTitle="Dashboard" />
@@ -35,10 +42,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async function (ctx
     const user = await parseUser(ctx, true);
     if (!user) {
         return {
-            redirect: {
-                destination: '/api/oauth',
-                permanent: false,
-            },
+            props: {
+                user: null,
+                guilds: null
+            }
         };
     }
     const guilds = user.guilds.filter(e => (e.permissions & 0x0000000000000008) == 8);

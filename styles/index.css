@@ -9,8 +9,64 @@ html, .background {
 
 /* Utils */
 
+.list, ol {
+    padding-left: 30%;
+}
+
+.dot {
+    padding-right: 2.5%;
+    padding-left: 0.5%;
+    display: inline;
+    border-radius: 100%;
+    background-color: #5865f2; 
+}
+
+.dotPadding {
+    display: inline;
+    padding-left: 0.5rem;
+}
+
+.smallCodeBlock {
+    display: inline;
+}
+
+.text-blurple {
+    color: #5865f2;
+}
+
+code, .codeblock { 
+    background-color: #2c2f33; 
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.4rem;
+}
+
+li {
+    padding-bottom: 0.5rem;
+}
+
 .centerImage {
     padding-top: 5%;
+}
+
+.smallSep {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.medSep {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.code {
+    overflow: auto;
+    border-radius: 4px;
+    background-color: #111111;
+    color: #cccccc;
 }
 
 /* Main page & Other */
