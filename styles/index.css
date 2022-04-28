@@ -34,6 +34,23 @@ html, .background {
     color: #5865f2;
 }
 
+.text-extralarge {
+    font-size: 15rem;
+}
+
+.esSep {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+
+.icon.outbound {
+    position: relative;
+    display: inline-block;
+    color: #aaa;
+    vertical-align: middle;
+    top: -1px;
+}
+
 code, .codeblock { 
     background-color: #2c2f33; 
     color: white;

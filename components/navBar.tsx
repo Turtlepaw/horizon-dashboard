@@ -10,6 +10,7 @@ import { CSSProperties } from "react"
 import { useToast } from '@chakra-ui/react';
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { AppProps } from "next/app";
+import { ExternalLink } from "./utils";
 
 export interface Props {
   user: DiscordUser | DiscordUserPartial;
@@ -35,11 +36,38 @@ export function NavMenuLinkItem(props: LinkItemProps) {
 export interface LinkProps {
   children: string;
   href: string;
+  isExternal?: boolean;
+  blurple?: boolean;
+  className?: string;
 }
 
-export function Link({ children, href }: LinkProps) {
+export function mergeClassNames(defaults: string = "", useIfNone: string, classNames: string){
+  if(classNames == null || classNames == ""){
+    return `${defaults == null ? "" : (defaults + " ")}${useIfNone}`;
+  } else return `${defaults == null ? "" : (defaults + " ")}${classNames}`;
+}
+
+function startsWithLink(str: string){
+  const redirects = ["/discord", "/support", "/addBot", "/add", "/github", "/dashboard-github", "/invite"];
+  return (str.startsWith("https://") || str.startsWith("http://") || redirects.includes(str) || str.startsWith("/r/"));
+}
+
+export function Link({ children, href, isExternal, blurple, className }: LinkProps = {
+  children: "",
+  href: "/void",
+  blurple: true,
+  className: "",
+  isExternal: false
+}) {
+  if(blurple == null) blurple = true;
+
+  if(isExternal || startsWithLink(href)){
+    return (
+      <ExternalLink children={children} href={href} className={mergeClassNames(null, blurple == true ? `text-blurple` : "", className)}/>
+    );
+  }
   return (
-    <a className="hover:underline text-blurple" href={href}>
+    <a className={mergeClassNames(`hover:underline`, "text-blurple", className)} href={href}>
       {children}
     </a>
   );

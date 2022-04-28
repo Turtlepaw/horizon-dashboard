@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { DiscordUser } from "../utils/types";
 import { parseUser } from "../utils/parse-user";
-import NavMenu from "../components/navBar";
+import NavMenu, { Link } from "../components/navBar";
 import Head from "../components/head";
 import Feature from "../components/feature";
 import Footer from "../components/footer";
@@ -73,7 +73,7 @@ export default function Index(props: Props) {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4} className="faqSmallText">
-              You can invite by clicking <a href="/invite">here</a>.
+              You can invite by clicking <Link href="/invite">here</Link>.
             </AccordionPanel>
           </AccordionItem>
         </Accordion>

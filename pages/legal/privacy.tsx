@@ -22,7 +22,7 @@ export default function Privacy(props: Props) {
       <div>
         <h2 className="text-5xl font-bold text-center">Your Privacy</h2>
         <div className="smallSep"/>
-        <p className="font-semibold text-center">Your privacy is important to us. That's why our code is open-source! If you're a <Link href="https://typescriptlang.org/">TypeScript</Link> coder you can review our code on our <Link href="/github">Github</Link>.</p>
+        <p className="font-semibold text-center">Your privacy is important to us. That's why our code is open-source! If you're a <Link isExternal href="https://typescriptlang.org/">TypeScript</Link> coder you can review our code on our <Link href="/github" isExternal>Github</Link>.</p>
         <Accordion className="faq">
           <AccordionItem className="faqItem">
             <h2>
