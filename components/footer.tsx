@@ -5,7 +5,7 @@ interface FooterItemOptions {
 
 export function FooterItem(options: FooterItemOptions){
     return (
-        <a className="footerLink hover:underline" href={options.href}>{options.name}</a>
+        <Link href={options.href}>{options.name}</Link>
     );
 }
 
