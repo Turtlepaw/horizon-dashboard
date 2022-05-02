@@ -1,3 +1,5 @@
+import { Link } from "./navBar";
+
 interface FooterItemOptions {
     href: string;
     name: string;
