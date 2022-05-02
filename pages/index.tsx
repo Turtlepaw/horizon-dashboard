@@ -59,7 +59,7 @@ export default function Index(props: Props) {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4} className="faqSmallText">
-              This may be because you do not have the admin permissions in the guild! If you do please <a href="/support">contact us</a> with your user ID.
+              This may be because you do not have the admin permissions in the guild! If you do please <Link href="/support">contact us</Link> with your user ID.
             </AccordionPanel>
           </AccordionItem>
 
