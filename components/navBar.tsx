@@ -63,7 +63,7 @@ export function Link({ children, href, isExternal, blurple, className }: LinkPro
 
   if(isExternal || startsWithLink(href)){
     return (
-      <ExternalLink children={children} href={href} className={mergeClassNames(null, blurple == true ? `text-blurple` : "", className)}/>
+      <ExternalLink children={children} href={href} className={mergeClassNames(`hover:underline`, blurple == true ? `text-blurple` : "", className)}/>
     );
   }
   return (
