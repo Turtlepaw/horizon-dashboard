@@ -7,7 +7,7 @@ interface FooterItemOptions {
 
 export function FooterItem(options: FooterItemOptions){
     return (
-        <Link href={options.href}>{options.name}</Link>
+        <Link href={options.href} className="footerLink">{options.name}</Link>
     );
 }
 
@@ -28,4 +28,4 @@ export default function Footer(){
         <div className="featureSep" />
         </>
     );
-}
+} ,
