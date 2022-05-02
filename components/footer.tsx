@@ -28,4 +28,4 @@ export default function Footer(){
         <div className="featureSep" />
         </>
     );
-} ,
+}
