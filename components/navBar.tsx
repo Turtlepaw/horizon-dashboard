@@ -48,7 +48,8 @@ export function mergeClassNames(defaults: string = "", useIfNone: string, classN
 }
 
 function startsWithLink(str: string){
-  const redirects = ["/discord", "/support", "/addBot", "/add", "/github", "/dashboard-github", "/invite"];
+  //Your custom redirects from `next.config.js`. Shows external icon since its going to redirect the user
+  const redirects = ["/discord", "/support", "/addBot", "/add", "/github", "/dashboard-github", "/invite", "/dash-git"];
   return (str.startsWith("https://") || str.startsWith("http://") || redirects.includes(str) || str.startsWith("/r/"));
 }
 

@@ -38,6 +38,15 @@ html, .background {
     font-size: 15rem;
 }
 
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #6c757d !important;
+}
+
+.text-light {
+    color: #afafaf !important;
+}
+
 .esSep {
     padding-top: 0rem !important;
     padding-bottom: 0rem !important;
@@ -286,11 +295,42 @@ li {
     width: 50%;
 }
 
+/* SVG */
+
+.svg-small {
+    width: 20px;
+    height: 20px;
+}
+
+.svg-medium {
+    width: 30px;
+    height: 30px;
+}
+
+.svg-semiMedium {
+    width: 25px;
+    height: 25px;
+}
+
+.svg-semiLarge {
+    width: 35px;
+    height: 35px;
+}
+
+.svg-large {
+    width: 40px;
+    height: 40px;
+}
+
 /* Footer */
+
+.footerColor {
+    background-color: #333439;
+}
 
 .footer {
     padding-top: 10%;
-    padding-bottom: 10%;
+    /*padding-bottom: 10%;*/
 }
 
 .footerCategory {

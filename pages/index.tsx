@@ -14,6 +14,7 @@ import {
   AccordionIcon,
   Box,
 } from '@chakra-ui/react'
+import { ExternalIcon } from "../components/utils";
 
 interface Props {
   user: DiscordUser;
@@ -28,22 +29,40 @@ export default function Index(props: Props) {
         <h1 className="text-6xl font-bold">
           Introducing, Horizon
         </h1>
+        <p className="font-normal pt-5 text-2xl text-light">Horizon is a TS-built, feature-rich, open-source, multipurpose bot..</p>
+        <a className="block bg-blurple text-white font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-96 mt-16 py-3 text-xl font-sans text-center" href="/beta">
+          Join the Beta <ExternalIcon color="white" size="semiMedium"/>
+        </a>
       </div>
       <div className="featureSep" />
       <div>
         <Feature
-          name="Info on everything"
-          description="Get info on the server or a user in a flash."
+          name="Link Scanning"
+          description="When someone sends a short link (like bit.ly) it will scan the link's redirection to see where it leads."
           num="left"
           numClass="featureGrey"
-          image="/features/info.svg"
+          image="/undraw/link.svg"
         />
         <Feature
-          name="Info on everything"
-          description="Get info on the server or a user in a flash."
+          name="Advanced Auto-Moderation"
+          description="Horizon will auto-scan every message to see if it has a custom banned word or if it's inappropriate."
           num="right"
           numClass="featureNone"
-          image="/features/info.svg"
+          image="/undraw/warning.svg"
+        />
+        <Feature
+          name="Levels"
+          description="Give rewards for your members being active. Customize your level-up message (and much more like rank image) and create a leaderboard."
+          num="left"
+          numClass="featureGrey"
+          image="/undraw/levels.svg"
+        />
+        <Feature
+          name="Gaming"
+          description="Interact with your community via games. With various games like trivia, tic tac toe, and more!"
+          num="right"
+          numClass="featureNone"
+          image="/undraw/game.svg"
         />
       </div>
       <div className="text-center">

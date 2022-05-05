@@ -1,4 +1,23 @@
-# Horizon dashboard
+<div align="center">
+  <a href="https://github.com/turtlepaws-workshop/horizon">
+    <img src="public/ico_rounded.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Horizon Dashboard</h3>
+
+  <p align="center">
+    Horizon's Custom Dashboard using Next.js & React.js
+    <br />
+    <a href="https://horizon.trtle.xyz/"><strong>Explore the demo »</strong></a>
+    <br />
+    <br />
+    <a href="https://horizon.trtle.xyz/">View Demo</a>
+    ·
+    <a href="https://github.com/turtlepaw/horizon-dashboard/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/turtlepaw/horizon-dashboard/issues">Request Feature</a>
+  </p>
+</div>
 
 [Horizon's](https://github.com/turtlepaws-workshop/horizon) dashboard. With Discord auth, many pages, and a beautiful design using [Headless UI](https://headlessui.dev/), [Chakra UI](https://chakra-ui.com), and [Fluent Icons](https://www.npmjs.com/package/@fluentui/react-icons).
 
@@ -12,6 +31,12 @@
 - 📤 Deploy with [Vercel](https://vercel.com/)
 - 🫶 100% open-source
 - 🏗️ Built in Discord Auth
+
+## ☀️ Horizon
+
+[
+   <img src="public/ADD_TO_SERVER.svg" style="width: 300px;">
+](https://horizon.trtle.xyz/add)
 
 ## 📦 Installation
 <details>
@@ -65,4 +90,5 @@
 - [ ] Render guilds with icons and more to the right in a container
 - [ ] Get API running & intergrate API with the dashboard
 - [ ] Create an embed page `/embed/create` and `/embeds`
-- [ ] Create a changelog on the site & in an markdown file
+- [ ] Create a changelog on the site
+- [x] Create a changelog in a markdown file
