@@ -87,8 +87,10 @@
 
 ## ✅ ToDo
 - [ ] Create a custom component to select a guild setting category
-- [ ] Render guilds with icons and more to the right in a container
+- [x] Render guilds with icons and more to the right in a container
 - [ ] Get API running & intergrate API with the dashboard
 - [ ] Create an embed page `/embed/create` and `/embeds`
-- [ ] Create a changelog on the site
+- [x] Create a changelog on the site
+- [ ] Create custom markdown formatter ([here](https://npm.im/@horizon/markdown))
 - [x] Create a changelog in a markdown file
+- [ ] Add tabs to `/guilds/:id`

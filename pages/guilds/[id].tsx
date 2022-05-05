@@ -6,7 +6,7 @@ import HTMLHead from "../../components/head";
 import Footer from "../../components/footer";
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
-import { Error, NotLoggedIn } from "../../components/utils";
+import { Error, NotLoggedIn, UnknownIcon } from "../../components/utils";
 
 export interface Props {
     user: DiscordUser,
@@ -40,7 +40,7 @@ export default function Guild(props: Props) {
         }
     ])
 
-    if(!props.user){
+    if (!props.user) {
         return (
             <NotLoggedIn />
         );
@@ -73,14 +73,21 @@ export default function Guild(props: Props) {
             <HTMLHead pageTitle="Dashboard" />
             <NavMenu user={props.user} />
             <div className="GuildImgStuff">
-                <img src={props.guild.iconURL} className="guildIcon" alt={`${props.guild.name}'s Icon`} />
+                {
+                    props.guild.iconURL == null ?
+                        <UnknownIcon color="#5865f2" size="guildIcon" className="guildIcon" /> :
+                        <img src={props.guild.iconURL} className="guildIcon" />
+                }
+                {
+                    //<img src={props.guild.iconURL || "guild.svg"} className="guildIcon" alt={`${props.guild.name}'s Icon`} />
+                }
             </div>
             <a className="text-center text-5xl font-bold hover:underline cursor-pointer" id="name" href="#name">
                 <div className="text-center">
                     {props.guild.name}
                 </div>
             </a>
-            <p className="text-center permissionText">{props.guild.owner ? "Owner" : "Administrator"}</p>
+            <p className="text-center permissionText text-light">{props.guild.owner ? "Owner" : "Administrator"}</p>
             <div className="text-center font-bold text-6xl settingCategory bigSettingsCategory">
                 Settings
             </div>
@@ -91,7 +98,7 @@ export default function Guild(props: Props) {
 
 export const getServerSideProps: GetServerSideProps<Props> = async function (ctx) {
     const user = await parseUser(ctx, true);
-    if(!user){
+    if (!user) {
         return {
             props: {
                 user: null,

@@ -4,7 +4,7 @@ import { DiscordGuild, DiscordUser } from "../../utils/types";
 import NavMenu from "../../components/navBar";
 import HTMLHead from "../../components/head";
 import Footer from "../../components/footer";
-import { NotLoggedIn } from "../../components/utils";
+import { NotLoggedIn, UnknownIcon } from "../../components/utils";
 
 export interface Props {
     user: DiscordUser,
@@ -12,7 +12,7 @@ export interface Props {
 }
 
 export default function Guild(props: Props) {
-    if(!props.user){
+    if (!props.user) {
         return (
             <NotLoggedIn />
         );
@@ -24,13 +24,23 @@ export default function Guild(props: Props) {
             <NavMenu user={props.user} />
             <div className="text-center">
                 {
-                    props.guilds.map(g =>
-                        <div className="text-center" key={g.id}>
-                            <div className="viewGuildText text-center font-bold text-2xl">{g.name}</div>
-                            <a className="viewGuildBtn block bg-white text-black font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-auto mt-16 px-5 py-3 text-xl font-sans" href={`/guilds/${g.id}`}>{g.botIn ? "Go" : "Add to Server"}</a>
-                            <div className="viewGuildSep"></div>
-                        </div>
-                    )
+                    props.guilds.map(g => {
+                        return (
+                            <div className="outerGuild" key={g.id}>
+                                <div className="text-center guild" key={g.id}>
+                                    {
+                                        g.iconURL == null ?
+                                        <UnknownIcon color="#5865f2" size="guildIcon" className="guildIcon"/> :
+                                        <img src={g.iconURL} className="guildIcon" />
+                                    }
+                                    <div className="viewGuildText text-center font-bold text-2xl">{g.name}</div>
+                                    <p className="text-center permissionText text-light">{g.owner ? "Owner" : "Administrator"}</p>
+                                    <a className="viewGuildBtn block bg-white text-black font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-auto mt-5 px-5 py-3 text-xl font-sans" href={`/guilds/${g.id}`}>{g.botIn ? "Go" : "Add to Server"}</a>
+                                    <div className="viewGuildSep"></div>
+                                </div>
+                            </div>
+                        );
+                    })
                 }
             </div>
             <Footer />

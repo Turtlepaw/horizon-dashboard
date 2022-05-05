@@ -1,3 +1,11 @@
+# 5/5/2022
+
+- Add new guild selection system
+- Update more text to light/muted text
+- Change "Add to Server" font to bold
+- Add Unknown icon to /guilds/:id
+- Change tab icon to rounded one
+
 # 5/4/2022
 
 - Update footer

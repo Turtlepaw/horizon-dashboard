@@ -21,7 +21,7 @@ export function parseGuild(guild: RawDiscordGuild, fetchedGuild: RawDiscordGuild
   return {
     features: guild.features,
     icon: guild.icon,
-    iconURL: `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=4096`,
+    iconURL: guild.icon == null ? null : `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=4096`,
     id: guild.id,
     name: guild.name,
     owner: guild.owner,

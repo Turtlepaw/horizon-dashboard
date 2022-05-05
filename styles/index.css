@@ -218,9 +218,22 @@ li {
 
 /* Guild Listing */
 
+.guild {
+    background-color: #41454c;
+    border-radius: 20px;
+    padding-top: 5%;
+}
+
+.outerGuild {
+    padding-bottom: 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
 .viewGuildBtn {
-    display: inline;
-    margin-left: 5%;
+    display: block;
+    margin-left: 40%;
+    margin-right: 40%;
 }
 
 .viewGuildSep {
@@ -317,9 +330,24 @@ li {
     height: 35px;
 }
 
+.svg-guildIcon {
+    width: 7%;
+    height: 7%;
+}
+
 .svg-large {
     width: 40px;
     height: 40px;
+}
+
+.svg-superLarge {
+    width: 100px;
+    height: 100px;
+}
+
+.svg-reallyLarge {
+    width: 70px;
+    height: 70px;
 }
 
 /* Footer */
