@@ -7,6 +7,7 @@ import Footer from "../../components/footer";
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { Error, NotLoggedIn, UnknownIcon } from "../../components/utils";
+import API from "../../API";
 
 export interface Props {
     user: DiscordUser,
@@ -42,7 +43,7 @@ export default function Guild(props: Props) {
 
     if (!props.user) {
         return (
-            <NotLoggedIn />
+            <NotLoggedIn pageURL={`/${props.guild == null ? "" : `guilds/${props.guild.id}`}`}/>
         );
     }
 
@@ -108,7 +109,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async function (ctx
     }
     const guild = user.guilds.find(e => e.id == ctx.query.id);
 
-    if (!guild.botIn) {
+    if (!API.includesBot(guild.id)) {
         return {
             redirect: {
                 destination: process.env.ADD_BOT + `&guild_id=${ctx.query.id}`,

@@ -3,6 +3,7 @@ import fixText from "capitalize"
 import HTMLHead from "../../components/head";
 import NavMenu, { Props } from "../../components/navBar";
 import { Textarea, Select, Input, Center } from '@chakra-ui/react'
+import { TextBox } from "../../components/TextBox";
 
 export const Colors = [
     'DEFAULT',
@@ -25,38 +26,48 @@ export const Colors = [
 
 export default function (props: Props) {
     return (
-        <Center>
-            <HTMLHead pageTitle="Embed Creator" />
-            <NavMenu user={props.user} />
-            <div>
-                <Input
-                    id="title"
-                    placeholder="Title"
-                />
-                <Input
-                    id="description"
-                    placeholder="Description"
-                    required={true}
-                />
-                <Select
-                    id="color"
-                    placeholder="Color"
-                >
-                    {Colors.map((option) => (
-                        <option key={option} value={option}>
-                            {fixText(option)}
-                        </option>
-                    ))}
-                </Select>
-                <Input
-                    id="author_name"
-                    placeholder="Author"
-                />
-                <Input
-                    id="footer_name"
-                    placeholder="Footer"
-                />
+        <>
+            <HTMLHead pageTitle="Embed Creator" /><NavMenu user={props.user} /><div>
+                <Center style={{
+                    display: 'block',
+                    paddingLeft: '10%',
+                    paddingRight: '10%',
+                }}>
+                    <Input
+                        id="title"
+                        placeholder="Title" />
+                    <TextBox
+                        mentions={[
+                            {
+                                trigger: "@",
+                                data: [
+                                    {
+                                        id: "<@14508408413>",
+                                        display: "@Turtlepaw"
+                                    }
+                                ]
+                            }
+                        ]}
+                        placeholder="Description" />
+                    <Select
+                        id="color"
+                        placeholder="Color"
+                        className="textInput select"
+                    >
+                        {Colors.map((option) => (
+                            <option key={option} value={option}>
+                                {fixText(option)}
+                            </option>
+                        ))}
+                    </Select>
+                    <Input
+                        id="author_name"
+                        placeholder="Author" />
+                    <Input
+                        id="footer_name"
+                        placeholder="Footer" />
+                </Center>
             </div>
-        </Center>
+        </>
     );
 }

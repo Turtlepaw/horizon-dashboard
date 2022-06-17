@@ -31,11 +31,11 @@ export default function Index(props: Props) {
         </h1>
         <p className="font-normal pt-5 text-2xl text-light">Horizon is a TS-built, feature-rich, open-source, multipurpose bot..</p>
         <a className="block bg-blurple text-white font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-96 mt-16 py-3 text-xl font-sans text-center" href="/beta">
-          Join the Beta <ExternalIcon color="white" size="semiMedium"/>
+          Join the Beta <ExternalIcon color="white" size="semiMedium" />
         </a>
       </div>
       <div className="featureSep" />
-      <div>
+      <div className="pb-10">
         <Feature
           name="Link Scanning"
           description="When someone sends a short link (like bit.ly) it will scan the link's redirection to see where it leads."
@@ -64,6 +64,21 @@ export default function Index(props: Props) {
           numClass="featureNone"
           image="/undraw/game.svg"
         />
+        <div className={"feature flex-col sm:flex-row text-center sm:text-left featureGrey"}>
+          <div className="sm:w-1/2 sm:p-8 feature-header">
+            <h1 className="font-bold text-4xl mb-3">Not sure?</h1>
+            <p className="font-500 text-lg">Check out the full list of features and the stats.</p>
+
+            <div className="mt-10">
+              <a className="mr-5 addToServer inline bg-blurple text-white font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-auto mt-16 px-5 py-3 text-xl font-sans" href="/stats">
+                Stats
+              </a>
+              <a className="addToServer inline bg-blurple text-white font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-auto mt-16 px-5 py-3 text-xl font-sans" href="/features">
+                Features
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="text-center">
         <h2 className="text-5xl font-bold">FAQ</h2>

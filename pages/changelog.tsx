@@ -17,7 +17,7 @@ export default function Index(props: Props) {
 
     return (
         <>
-            <Head pageTitle="Home" />
+            <Head pageTitle="Changelogs" />
             <NavMenu user={props.user} />
             <h1 className="text-center text-3xl font-bold pb-3">Changelogs</h1>
             <p className="text-light text-center mb-10">Images, titles, and other markdown features don't work as expected<br/>This will be fixed in a future update where we will create a custom Markdown formatter package.<br/><Link href="https://npm.im/@horizon/react-markdown">Check it out (not out)</Link></p>

@@ -5,6 +5,7 @@ import { verify } from "jsonwebtoken";
 import { config } from "./config";
 import fetch from "node-fetch";
 import { getUser } from "../db/db";
+import API from "../API";
 
 export interface ParseError {
   error: boolean;
@@ -12,12 +13,6 @@ export interface ParseError {
 }
 
 export function parseGuild(guild: RawDiscordGuild, fetchedGuild: RawDiscordGuild): DiscordGuild {
-  //If you have the API running change this from:
-  //const botIn = fetchedGuild == null;
-  //to this:
-  //const botIn = fetchedGuild != null;
-  const botIn = fetchedGuild == null;
-
   return {
     features: guild.features,
     icon: guild.icon,
@@ -25,8 +20,7 @@ export function parseGuild(guild: RawDiscordGuild, fetchedGuild: RawDiscordGuild
     id: guild.id,
     name: guild.name,
     owner: guild.owner,
-    permissions: guild.permissions,
-    botIn: botIn
+    permissions: guild.permissions
   }
 }
 

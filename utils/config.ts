@@ -35,5 +35,12 @@ export const config = {
     "BOT_TOKEN",
     "this is your bot's token",
     true
+  ),
+  apiURL: validateEnv(
+    "API_URL",
+    "http://localhost:2000"
+  ),
+  apiKey: validateEnv(
+    "API_KEY"
   )
 } as const;
