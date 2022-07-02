@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import { AppProps } from "next/app";
 import { Props } from "../components/navBar";
 import "../styles/index.css";
+import "../styles/global.css";
 import { ChakraProvider } from '@chakra-ui/react'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -12,7 +13,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     //🔨 Fix: Chakra resets background.
     //🔎 Bug: changes background color when component activated.
     //----------------------------------------------------------------------------------------
-    <div className="background">
+    <div className="background poppins">
       <ChakraProvider
         cssVarsRoot="background-color: #36393f; color: white;"
         resetCSS={false}

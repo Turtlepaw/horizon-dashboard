@@ -1,4 +1,5 @@
 import { Link } from "./navBar";
+import { Center } from "@chakra-ui/react";
 
 interface FooterItemOptions {
     href: string;
@@ -14,20 +15,10 @@ export function FooterItem(options: FooterItemOptions) {
 export default function Footer() {
     return (
         <>
-            <div className="footer text-center">
-                <div className="footerColor p-10 pl-10">
-                    <div className="footerCategory">
-                        <div className="text-2xl font-bold">Legal</div>
-                        <FooterItem href="/privacy" name="Privacy Policy" />
-                    </div>
-                    <div className="footerCategory">
-                        <div className="text-2xl font-bold">Other</div>
-                        <FooterItem href="/github" name="GitHub" />
-                        <FooterItem href="/dash-git" name="Dashboard Github" />
-                        <FooterItem href="/discord" name="Discord" />
-                    </div>
-                    <div className="text-sm pt-5">
-                        <p className="font-medium">©️ 2022 Turtlepaw's Workshop</p>
+            <div className="footer">
+                <Center className="footerColor p-10 pl-10 flex">
+                    <div className="text-sm pt-5 pr-10">
+                        <p className="font-extrabold">©️ 2022 Turtlepaw's Workshop</p>
                         <p className="text-muted">
                             Not affiliated with Discord, Inc.
                             <br />
@@ -35,7 +26,17 @@ export default function Footer() {
                         </p>
                         <p className="font-medium text-muted">Some illustrations provied by <Link href="https://undraw.co/">Undraw</Link> <Link href="https://undraw.co/license">Check out license</Link></p>
                     </div>
-                </div>
+                    <div className="footerCategory pr-10">
+                        <div className="text-2xl font-extrabold">Legal</div>
+                        <FooterItem href="/privacy" name="Privacy Policy" />
+                    </div>
+                    <div className="footerCategory pr-10">
+                        <div className="text-2xl font-extrabold">Other</div>
+                        <FooterItem href="/github" name="GitHub" />
+                        <FooterItem href="/dash-git" name="Dashboard Github" />
+                        <FooterItem href="/discord" name="Discord" />
+                    </div>
+                </Center>
                 <div className="featureSep" />
             </div>
         </>

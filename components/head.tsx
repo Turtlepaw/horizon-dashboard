@@ -12,7 +12,8 @@ export default function HTMLHead(options: HeadOptions) {
     name: `Horizon`,
     description: "The TS built, open-source, feature-rich Discod bot that does it all!",
     url: process.env.APP_URI,
-    icon: process.env.APP_URI + "/ico_rounded.png",
+    icon: process.env.APP_URI + "/icon_rounded.png",
+    iconSVG: "icon_rounded.svg",
     color: "#5865f2",
     type: "website"
   }
@@ -20,7 +21,7 @@ export default function HTMLHead(options: HeadOptions) {
     <div>
       <Head>
         <title>Horizon - {options.pageTitle}</title>
-        <link rel="icon" href="/ico_rounded.svg" />
+        <link rel="icon" href="/icon_rounded.png" />
         <meta content={embedOptions.name} property="og:title" />
         <meta content={embedOptions.description} property="og:description" />
         <meta content={embedOptions.url} property="og:url" />

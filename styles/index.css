@@ -1,9 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 html, .background {
-    background-color: #36393f;
+    background-color: var(--grey-dark);
     color: white;
 }
 
@@ -157,8 +153,8 @@ li {
 }
 
 .NavMenuAvatar {
-    width: 25%;
-    margin-left: 75%;
+    width: 20%;
+    float: right;
 }
 
 .NavMenuIcon {

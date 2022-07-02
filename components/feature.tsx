@@ -19,7 +19,7 @@ export default function Feature(props: Props) {
                         <img className="rounded-lg  mx-auto img-size" src={props.image} /> 
                     </div>
                     <div className="w-full sm:w-1/2 sm:p-8 feature-header">
-                        <h1 className="font-bold text-4xl mb-3">{props.name}</h1>
+                        <h1 className="font-extrabold text-4xl mb-3">{props.name}</h1>
                         <p className="font-500 text-lg">{props.description}</p>
                         
                         <a className="addToServer block bg-white text-black font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-auto mt-16 px-5 py-3 text-xl font-sans" href="/guilds">Add to Server</a>
@@ -35,7 +35,7 @@ export default function Feature(props: Props) {
                         <img className="rounded-lg  mx-auto img-size" src={props.image} /> 
                     </div>
                     <div className="w-full sm:w-1/2 sm:p-8 feature-header">
-                        <h1 className="font-bold text-4xl mb-3">{props.name}</h1>
+                        <h1 className="font-extrabold text-4xl mb-3">{props.name}</h1>
                         <p className="font-500 text-lg">{props.description}</p>
                         
                         <a className="addToServer block bg-white text-black font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-auto mt-16 px-5 py-3 text-xl font-sans" href="/guilds">Add to Server</a>

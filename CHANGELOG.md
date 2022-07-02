@@ -1,3 +1,12 @@
+# 7/2/2022
+We're back at it!
+
+- Rebrand logo with new color
+- Update `404.tsx` (remove yellow 4's)
+- Update `index.tsx` (improve mobile support? this has not been tested)
+- Update font to Poppins (can be found on [fonts.google.com](https://fonts.google.com/specimen/Poppins))
+- Add `global.css` for brand colors and other
+
 # 5/5/2022
 
 - Add new guild selection system

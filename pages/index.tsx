@@ -13,6 +13,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
+  Center,
 } from '@chakra-ui/react'
 import { ExternalIcon } from "../components/utils";
 
@@ -26,13 +27,15 @@ export default function Index(props: Props) {
       <Head pageTitle="Home" />
       <NavMenu user={props.user} />
       <div className="text-center horizonText">
-        <h1 className="text-6xl font-bold">
+        <h1 className="text-6xl font-extrabold">
           Introducing, Horizon
         </h1>
-        <p className="font-normal pt-5 text-2xl text-light">Horizon is a TS-built, feature-rich, open-source, multipurpose bot..</p>
-        <a className="block bg-blurple text-white font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg mx-96 mt-16 py-3 text-xl font-sans text-center" href="/beta">
-          Join the Beta <ExternalIcon color="white" size="semiMedium"/>
-        </a>
+        <p className="font-normal pt-5 text-2xl text-light">Horizon is a TS-built, feature-rich, open-source, multipurpose bot.</p>
+        <Center>
+          <a className="block bg-blurple text-white font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg px-5 max-w-2xl mt-16 py-3 text-xl font-sans text-center" href="/beta">
+            Join the Beta <ExternalIcon color="white" size="semiMedium"/>
+          </a>
+        </Center>
       </div>
       <div className="featureSep" />
       <div>

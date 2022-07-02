@@ -77,7 +77,7 @@ export function Link({ children, href, isExternal, blurple, className }: LinkPro
 export function NavMenuIcon() {
   return (
     <a href="/">
-      <img className="NavMenuIcon" src="/ico.png" />
+      <img className="NavMenuIcon" src="/icon.png" />
     </a>
   );
 }
