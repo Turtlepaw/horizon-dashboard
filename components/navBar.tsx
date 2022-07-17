@@ -41,13 +41,13 @@ export interface LinkProps {
   className?: string;
 }
 
-export function mergeClassNames(defaults: string = "", useIfNone: string, classNames: string){
-  if(classNames == null || classNames == ""){
+export function mergeClassNames(defaults: string = "", useIfNone: string, classNames: string) {
+  if (classNames == null || classNames == "") {
     return `${defaults == null ? "" : (defaults + " ")}${useIfNone}`;
   } else return `${defaults == null ? "" : (defaults + " ")}${classNames}`;
 }
 
-function startsWithLink(str: string){
+function startsWithLink(str: string) {
   //Your custom redirects from `next.config.js`. Shows external icon since its going to redirect the user
   const redirects = ["/discord", "/support", "/addBot", "/add", "/github", "/dashboard-github", "/invite", "/dash-git"];
   return (str.startsWith("https://") || str.startsWith("http://") || redirects.includes(str) || str.startsWith("/r/"));
@@ -60,15 +60,15 @@ export function Link({ children, href, isExternal, blurple, className }: LinkPro
   className: "",
   isExternal: false
 }) {
-  if(blurple == null) blurple = true;
+  if (blurple == null) blurple = true;
 
-  if(isExternal || startsWithLink(href)){
+  if (isExternal || startsWithLink(href)) {
     return (
-      <ExternalLink children={children} href={href} className={mergeClassNames(`hover:underline`, blurple == true ? `text-blurple` : "", className)}/>
+      <ExternalLink children={children} href={href} className={mergeClassNames(`hover:underline`, blurple == true ? `text-brand` : "", className)} />
     );
   }
   return (
-    <a className={mergeClassNames(`hover:underline`, "text-blurple", className)} href={href}>
+    <a className={mergeClassNames(`hover:underline`, "text-brand", className)} href={href}>
       {children}
     </a>
   );
@@ -202,7 +202,7 @@ export default function NavMenu(props: Props) {
           </Menu>
           :
           <a className="hover:underline cursor-pointer avatarMargin" href="/api/oauth">
-            <img className="NavMenuAvatarImg2 NavMenuInline" src="/login.png" alt="Login With Discord" />
+            <img className="NavMenuAvatarImg2 NavMenuInline bg-brand rounded-full p-2" src="/icons/user.svg" alt="Login With Discord" />
           </a>
       }
     </div>

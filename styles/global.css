@@ -33,16 +33,36 @@
     background-color: var(--grey-light);
 }
 
-.bg-grey-extra-dark {
+.hover\:bg-grey-extra-dark:hover {
     background-color: var(--grey-extradark);
 }
 
-.bg-grey-light {
+.hover\:bg-grey-light:hover {
+    background-color: var(--grey-light);
+}
+
+.hover\:bg-brand:hover {
+    background-color: var(--brand-color);
+}
+
+.hover\:bg-grey-dark:hover {
+    background-color: var(--grey-dark);
+}
+
+.hover\:bg-grey-light:hover {
+    background-color: var(--grey-light);
+}
+
+.hover\:bg-grey-extra-dark:hover {
+    background-color: var(--grey-extradark);
+}
+
+.hover\:bg-grey-light:hover {
     background-color: var(--grey-light);
 }
 
 .poppins {
-    font-family: 'Poppins', sans-serif;
+    /*font-family: Poppins, sans-serif;*/
 }
 
 .title {
@@ -50,7 +70,6 @@
     font-style: normal;
     font-weight: 900;
     font-size: 2rem;
-    ;
 }
 
 body::-webkit-scrollbar {

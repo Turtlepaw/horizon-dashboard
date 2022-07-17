@@ -6,6 +6,7 @@ import Head from "../components/head";
 import Feature from "../components/feature";
 import Footer from "../components/footer";
 import Emojipicker from "../components/emojipicker";
+import { FaqBox, FaqDescription, FaqTitle } from "../components/FAQ";
 import {
   Accordion,
   AccordionItem,
@@ -28,12 +29,14 @@ export default function Index(props: Props) {
       <NavMenu user={props.user} />
       <div className="text-center horizonText">
         <h1 className="text-6xl font-extrabold">
-          Introducing, Horizon
+          Efficiency <span className="gradientText">First</span>
         </h1>
-        <p className="font-normal pt-5 text-2xl text-light">Horizon is a TS-built, feature-rich, open-source, multipurpose bot.</p>
         <Center>
-          <a className="block bg-blurple text-white font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg px-5 max-w-2xl mt-16 py-3 text-xl font-sans text-center" href="/beta">
-            Join the Beta <ExternalIcon color="white" size="semiMedium"/>
+          <p className="font-semibold max-w-2xl pt-5 text-2xl text-light">We, at Horizon, believe we can make server management easier, with workflows, Smart Moderation, and more.</p>
+        </Center>
+        <Center>
+          <a className="block bg-brand text-white font-bold transition duration-200 shadow hover:shadow-2xl ease-in-and-out rounded-lg px-5 max-w-2xl mt-16 py-3 text-xl font-sans text-center" href="/beta">
+            Join the beta <ExternalIcon color="white" size="semiMedium" />
           </a>
         </Center>
       </div>
@@ -70,35 +73,22 @@ export default function Index(props: Props) {
       </div>
       <div className="text-center">
         <h2 className="text-5xl font-bold">FAQ</h2>
-        <Accordion className="faq">
-          <AccordionItem className="faqItem">
-            <h2>
-              <AccordionButton className="faqText">
-                <Box flex='1' textAlign='left'>
-                  Why is my server not showing up?
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4} className="faqSmallText">
-              This may be because you do not have the admin permissions in the guild! If you do please <Link href="/support">contact us</Link> with your user ID.
-            </AccordionPanel>
-          </AccordionItem>
-
-          <AccordionItem className="faqItem">
-            <h2>
-              <AccordionButton className="faqText">
-                <Box flex='1' textAlign='left'>
-                  How do I add the bot?
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={4} className="faqSmallText">
-              You can invite by clicking <Link href="/invite">here</Link>.
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
+        <FaqBox>
+          <FaqTitle>
+            Why can't I see my server?
+          </FaqTitle>
+          <FaqDescription>
+            This may be because you do not have the admin permissions in the server. If you do please <Link href="/support" blurple={false}>contact us</Link> with your Guild ID.
+          </FaqDescription>
+        </FaqBox>
+        <FaqBox>
+          <FaqTitle>
+            Wait... What's a "Guild?"
+          </FaqTitle>
+          <FaqDescription>
+            A "Guild" or rather a "Server" is a community space of people or an invite-only space on Discord.
+          </FaqDescription>
+        </FaqBox>
       </div>
       <Footer />
     </>

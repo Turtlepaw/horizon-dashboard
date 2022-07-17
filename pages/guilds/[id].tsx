@@ -7,6 +7,7 @@ import Footer from "../../components/footer";
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { Error, NotLoggedIn, UnknownIcon } from "../../components/utils";
+import { Tooltip } from "@chakra-ui/react";
 
 export interface Props {
     user: DiscordUser,
@@ -25,7 +26,7 @@ export default function Guild(props: Props) {
         },
         {
             id: 2,
-            title: "Slash Commands (soon)",
+            title: "Slash Commands",
             description: "Create custom server slash commands with multiple actions linked. (Coming soon)"
         },
         {
@@ -72,26 +73,39 @@ export default function Guild(props: Props) {
         <>
             <HTMLHead pageTitle="Dashboard" />
             <NavMenu user={props.user} />
-            <div className="GuildImgStuff">
+            <div className="float-left px-10 py-10 bg-grey-extra-dark">
+                <div className="font-extrabold pl-2 text-lg">Settings</div>
                 {
-                    props.guild.iconURL == null ?
-                        <UnknownIcon color="#5865f2" size="guildIcon" className="guildIcon" /> :
-                        <img src={props.guild.iconURL} className="guildIcon" />
-                }
-                {
-                    //<img src={props.guild.iconURL || "guild.svg"} className="guildIcon" alt={`${props.guild.name}'s Icon`} />
+                    categories.map(e => (
+                        <div key={e.id}>
+                            <Tooltip label={e.description} className="bg-grey-light">
+                                <h1 className="cursor-pointer text-2xl font-semibold hover:bg-grey-light hover:rounded-md p-2">{e.title}</h1>
+                            </Tooltip>
+                        </div>
+                    ))
                 }
             </div>
-            <a className="text-center text-5xl font-bold hover:underline cursor-pointer" id="name" href="#name">
-                <div className="text-center">
-                    {props.guild.name}
+            <div className="float-right">
+                <div className="GuildImgStuff">
+                    {
+                        props.guild.iconURL == null ?
+                            <UnknownIcon color="#5865f2" size="guildIcon" className="guildIcon" /> :
+                            <img src={props.guild.iconURL} className="guildIcon" />
+                    }
+                    {
+                        //<img src={props.guild.iconURL || "guild.svg"} className="guildIcon" alt={`${props.guild.name}'s Icon`} />
+                    }
                 </div>
-            </a>
-            <p className="text-center permissionText text-light">{props.guild.owner ? "Owner" : "Administrator"}</p>
-            <div className="text-center font-bold text-6xl settingCategory bigSettingsCategory">
-                Settings
+                <a className="text-center text-5xl font-black hover:underline cursor-pointer" id="name" href="#name">
+                    <div className="text-center">
+                        {props.guild.name}
+                    </div>
+                </a>
+                <p className="text-center permissionText text-light">{props.guild.owner ? "Owner" : "Administrator"}</p>
+                <div className="text-center font-bold text-6xl settingCategory bigSettingsCategory">
+                    Settings
+                </div>
             </div>
-            <Footer />
         </>
     );
 }

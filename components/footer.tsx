@@ -8,7 +8,7 @@ interface FooterItemOptions {
 
 export function FooterItem(options: FooterItemOptions) {
     return (
-        <Link href={options.href} className="footerLink text-blurple">{options.name}</Link>
+        <Link href={options.href} className="footerLink text-brand">{options.name}</Link>
     );
 }
 
